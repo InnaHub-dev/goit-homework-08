@@ -13,10 +13,10 @@ def get_birthdays_per_week(users: dict[str,datetime]) -> dict[str, list[str]]:
         date = datetime(year=current_day.year, month=date.month, day=date.day)
         difference = date - current_day
 
-        if 0 < difference.days <= 7:
+        if 0 <= difference.days <= 7:
             weekday = date.strftime('%A')
 
-            if weekday =='Saturday':
+            if weekday in ['Saturday', 'Sunday']:
                 weekday = 'Monday'
   
             happy_birthday[weekday].append(user)
